@@ -7,4 +7,58 @@
 */
 :root {
   /* Colors */
+  --white: #ffffff;
+  --light-gray: #efefed;
+  --gray: #63666a;
+  --strong-gray: #363737;
+  --black: #000000;
+  --accent: #ce1126;
+  /* Fonts & Typography */
+  --font: "Mulish", Helvetica, Arial, sans-serif;
+  /* Length values */
+  --max-width: 1600px;
+  --padding: 16px;
+  --margin: 32px;
+  --gap: 16px;
+  /* Other values */
+  --transition: 300ms ease;
 }
+
+/* 
+==============================
+  BASE
+==============================
+*/
+body {
+  font-family: var(--font);
+}
+
+/* 
+==============================
+  REUSABLE CLASSES
+==============================
+*/
+
+/* 
+==============================
+  HEADER
+==============================
+*/
+
+/* 
+==============================
+  MAIN
+==============================
+*/
+
+/* 
+==============================
+  FOOTER
+==============================
+*/
+
+/* 
+==============================
+  MEDIA QUERIES
+==============================
+*/
