@@ -9,6 +9,7 @@
   /* Colors */
   --white: #ffffff;
   --light-gray: #efefed;
+  --light-gray-2: #d9d9d6;
   --gray: #63666a;
   --medium-gray: #565757;
   --strong-gray: #363737;
@@ -16,13 +17,20 @@
   --accent: #ce1126;
   /* Fonts & Typography */
   --font: "Mulish", Helvetica, Arial, sans-serif;
+  --f-size-smaller: 11px;
+  --f-weight-thinner: 200;
+  --f-weight-thin: 300;
+  --f-weight-bold: 700;
+  --l-spacing-small: 0.5px;
   /* Length values */
   --max-width: 1600px;
   --indent-default: 24px;
   --indent-smaller: 8px;
   --indent-small: 12px;
+  --indent-big: 36px;
   /* --indent-big: 40px; */
   --gap: 16px;
+  --gap-big: 32px;
   /* Other values */
   --transition: 300ms ease;
   --z-burger: 3;
@@ -68,14 +76,55 @@ body.lock {
   HEADER
 ==============================
 */
+/* topbar */
 .topbar {
   width: 100%;
   background-color: var(--medium-gray);
-  color: var(--white);
+  color: var(--light-gray-2);
   padding-block: var(--indent-smaller);
   padding-inline: var(--indent-default);
+  font-size: var(--f-size-smaller);
+  font-weight: var(--f-weight-thin);
+  letter-spacing: var(--l-spacing-small);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.block__left a:not(:nth-child(2)) {
+  display: none;
+}
+
+.block__left a:nth-child(2)::after {
+  content: "+";
+  height: 18px;
+  width: 18px;
+  font-size: 18px;
+  margin-inline-start: 6px;
+}
+
+.block__right a:first-child::after {
+  content: " ";
+  margin-inline-start: 10px;
+  margin-inline-end: 5px;
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  background-color: currentColor;
+  transform: translateY(3px);
+}
+
+.block__right a {
+  transition: color var(--transition);
+}
+
+.block__right:hover a {
+  text-decoration: underline;
+  color: var(--white);
+}
+/* end topbar */
+
+/* navigation */
 .navigation {
   width: 100%;
   padding-inline: var(--indent-default);
@@ -156,6 +205,7 @@ body.lock {
 .burger.active {
   padding-inline-end: var(--indent-default);
 }
+/* end navigation */
 
 /* 
 ==============================
@@ -185,6 +235,35 @@ footer {
 ==============================
 */
 @media (min-width: 996px) {
+  .topbar {
+    padding-inline: var(--indent-big);
+  }
+
+  .block__left.block__left a {
+    display: inline-block;
+    transition: color var(--transition);
+  }
+
+  .block__left a:hover {
+    color: var(--white);
+    text-decoration: underline;
+  }
+
+  .block__left {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-big);
+  }
+
+  .block__left a:nth-child(2)::after {
+    content: none;
+  }
+
+  .block__left a:first-child {
+    font-weight: var(--f-weight-bold);
+    color: var(--white);
+  }
+
   .navigation {
     justify-content: flex-start;
     gap: var(--gap);
