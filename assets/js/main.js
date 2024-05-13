@@ -12,3 +12,15 @@ burgerButton.addEventListener("click", () => {
   burgerButton.classList.toggle("active");
   overlay.classList.toggle("active");
 });
+
+// hide / show navigation on scroll
+// let prevScrollpos = window.scrollY;
+// window.onscroll = () => {
+//   let currentScrollPos = window.scrollY;
+//   if (prevScrollpos > currentScrollPos) {
+//     navbar.style.top = "0";
+//   } else {
+//     navbar.style.top = "-250px";
+//   }
+//   prevScrollpos = currentScrollPos;
+// };
