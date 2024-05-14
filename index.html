@@ -125,12 +125,38 @@
     <div class="overlay__body"></div>
 
     <main>
-      main
+      <section class="banner wrapper">
+        <video
+          class="banner__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="/assets/images/rtx-poster.webp"
+        >
+          <source src="/assets/images/rtx-banner.webm" />
+          <source src="/assets/images/rtx-banner.mp4" />
+        </video>
+
+        <div class="banner__txt hover">
+          <h1>People, Planet and Principles</h1>
+          <p>
+            RTX releases 2023 Environmental, Social and Governance report
+            <svg class="arrow-right" width="10" height="10">
+              <use
+                xlink:href="/assets/icons/arrow-right.svg#arrow-right"
+                width="100%"
+                height="100%"
+              ></use>
+            </svg>
+          </p>
+        </div>
+      </section>
+
+      <section class="banner__three-cards wrapper">three cards</section>
     </main>
 
-    <footer>
-      footer
-    </footer>
+    <footer>footer</footer>
 
     <script async src="/assets/js/main.js"></script>
     <noscript>JavaScript is not supported</noscript>
