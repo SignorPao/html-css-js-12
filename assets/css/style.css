@@ -29,14 +29,16 @@
   --f-weight-bolder: 1000;
   --l-spacing-small: 0.5px;
   --line-height-title: 1.2;
+  --line-height-default: 1.4;
   /* Length values */
   --max-width: 1600px;
   --indent-default: 24px;
   --indent-smaller: 8px;
   --indent-small: 12px;
   --indent-big: 36px;
-  /* --indent-big: 40px; */
+  --indent-bigger: 40px;
   --gap: 16px;
+  --gap-smaller: 3px;
   --gap-small: 8px;
   --gap-big: 32px;
   /* Other values */
@@ -65,7 +67,12 @@ h1 {
   font-size: calc(var(--f-size-title) * 1.35);
   line-height: var(--line-height-title);
   letter-spacing: var(--l-spacing-small);
-  cursor: pointer;
+}
+
+h3 {
+  font-size: calc(var(--f-size-title) * 0.78);
+  font-weight: var(--f-weight-bold);
+  line-height: var(--line-height-default);
 }
 
 /* 
@@ -335,6 +342,10 @@ h1 {
   MAIN
 ==============================
 */
+section + section {
+  margin-block-start: var(--indent-bigger);
+}
+
 /* banner */
 .banner__txt {
   width: 100%;
@@ -361,9 +372,28 @@ h1 {
 /* end banner */
 
 /* banner three cards */
-.banner__three-cards {
+.banner__three-cards-container {
   width: 100%;
-  height: 500px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--gap-smaller);
+}
+
+.banner__three-cards-container article {
+  width: calc((100% - var(--gap-smaller)) / 2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner__three-cards-img {
+  cursor: pointer;
+}
+
+.banner__three-cards-txt {
+  background-color: var(--light-gray);
+  height: 100%;
+  padding: 18px;
 }
 /* end banner three cards */
 
@@ -429,6 +459,10 @@ footer {
   .banner__txt svg {
     width: 12px;
     height: 12px;
+  }
+
+  .banner__three-cards-container article {
+    width: calc((100% - (var(--gap-smaller) * 2)) / 3);
   }
 }
 
