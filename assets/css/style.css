@@ -69,6 +69,12 @@ h1 {
   letter-spacing: var(--l-spacing-small);
 }
 
+h2 {
+  font-size: calc(var(--f-size-title) * 1.1);
+  line-height: var(--line-height-title);
+  letter-spacing: var(--l-spacing-small);
+}
+
 h3 {
   font-size: calc(var(--f-size-title) * 0.78);
   font-weight: var(--f-weight-bold);
@@ -396,6 +402,35 @@ section + section {
   padding: 18px;
 }
 /* end banner three cards */
+
+/* progress */
+.progress {
+  background-color: var(--light-gray);
+  padding-inline: var(--indent-default);
+  padding-block: calc(var(--indent-big) * 2);
+}
+
+.progress__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.progress__container h2 {
+  text-align: center;
+}
+
+.images__container {
+  display: flex;
+  width: 100%;
+  
+}
+
+.progress__images-item {
+}
+.arrow-right {
+}
+/* end progress */
 
 /* 
 ==============================
