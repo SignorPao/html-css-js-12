@@ -20,6 +20,7 @@
   --f-size-smaller: 11px;
   --f-size-small: 14px;
   --f-size-default: 16px;
+  --f-size-medium: 18px;
   --f-size-big: 20px;
   --f-size-title: 24px;
   --f-weight-thinner: 200;
@@ -423,12 +424,75 @@ section + section {
 .images__container {
   display: flex;
   width: 100%;
-  
+  overflow: hidden;
 }
 
 .progress__images-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
-.arrow-right {
+
+.progress__item-txt-wrapper {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: end;
+}
+
+.progress__images-item span {
+  padding: var(--indent-default);
+  color: var(--white);
+  font-size: var(--f-size-medium);
+  font-weight: var(--f-weight-bold);
+  letter-spacing: var(--l-spacing-small);
+  line-height: var(--line-height-default);
+  will-change: transform;
+  transition: color var(--transition), transform var(--transition);
+  z-index: 1;
+}
+
+.progress__item-txt-wrapper::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #ffffff7f;
+  z-index: 0;
+  top: 100%;
+  transition: top var(--transition);
+}
+
+.progress__images-item:hover span {
+  color: var(--black);
+  transform: scale(1.1);
+}
+
+.progress__images-item:hover .progress__item-txt-wrapper::after {
+  top: 0;
+}
+
+.progress__container button {
+  border: 2px solid var(--accent);
+  border-radius: 1000px;
+  background-color: var(--accent);
+  color: var(--white);
+  width: fit-content;
+  margin-inline: auto;
+  padding: var(--indent-small) var(--indent-default);
+  margin-block-start: var(--indent-default);
+  font-size: var(--f-size-big);
+  font-weight: var(--f-weight-bold);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.progress__container button:hover {
+  background-color: transparent;
+  color: var(--accent);
 }
 /* end progress */
 
@@ -451,6 +515,16 @@ footer {
 @media (min-width: 570px) {
   .banner__txt {
     padding-inline: calc(var(--indent-default) * 2);
+  }
+
+  .progress {
+    padding-inline: calc(var(--indent-default) * 2);
+  }
+
+  .progress__container h2 {
+    font-size: calc(var(--f-size-title) * 1.35);
+    line-height: var(--line-height-title);
+    letter-spacing: var(--l-spacing-small);
   }
 }
 
@@ -609,6 +683,22 @@ footer {
     width: 14px;
     height: 14px;
   }
+
+  .progress {
+    padding-inline: calc(var(--indent-default) * 3);
+  }
+
+  .progress__container h2 {
+    font-size: calc(var(--f-size-title) * 1.5);
+  }
+
+  .progress__images-item span {
+    padding: var(--indent-bigger);
+  }
+
+  .progress__container p {
+    font-size: calc(var(--f-size-smaller) * 2);
+  }
 }
 
 @media (min-width: 1200px) {
@@ -628,6 +718,24 @@ footer {
   .nav__list,
   .additional__list {
     font-size: var(--f-size-default);
+  }
+
+  .progress {
+    padding-inline: calc(var(--indent-default) * 4);
+  }
+
+  .progress__container h2 {
+    width: 70%;
+    margin-inline: auto;
+  }
+
+  .progress__images-item:hover span {
+    transform: scale(1.2);
+  }
+
+  .progress__container p {
+    width: 80%;
+    margin-inline: auto;
   }
 }
 
@@ -656,10 +764,22 @@ footer {
     margin-inline: calc(var(--indent-default) * 5);
     margin-block-end: calc(var(--indent-default) * 4);
   }
+
+  .progress__container {
+    padding-inline: calc(var(--indent-default) * 5);
+  }
 }
 
 @media (min-width: 1600px) {
   .navigation {
     padding-inline: calc((100vw - var(--max-width)) / 2);
+  }
+
+  .progress__container {
+    padding-inline: calc(var(--indent-default) * 7);
+  }
+
+  .progress__container h2 {
+    font-size: calc(var(--f-size-title) * 1.7);
   }
 }
