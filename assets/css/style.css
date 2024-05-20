@@ -85,6 +85,23 @@ h3 {
   line-height: var(--line-height-default);
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);
+}
+
 /* 
 ==============================
   REUSABLE CLASSES
@@ -123,6 +140,47 @@ h3 {
   color: var(--accent);
   margin-inline-start: 4px;
 }
+
+/* scroll to top button */
+.scroll-up {
+  position: fixed;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  bottom: -50%;
+  transition: bottom 400ms;
+}
+
+.scroll-up span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  will-change: transform;
+  transition: transform 0.4s, background-color 0.4s, color 0.4s;
+}
+
+.scroll-up svg{
+  transform: rotate(-90deg);
+}
+
+.scroll-up:hover span {
+  transition: transform 150ms;
+  transform: translateY(-0.5rem);
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+.show-scroll {
+  bottom: 9rem;
+}
+/* end scroll to top button */
 
 /* 
 ==============================
@@ -660,7 +718,7 @@ footer ul li a:not(.hover):hover {
   width: 100%;
 }
 
-.author a  {
+.author a {
   font-size: var(--f-size-small);
   transition: color var(--transition);
 }
@@ -697,7 +755,7 @@ footer ul li a:not(.hover):hover {
     padding-inline: calc(var(--indent-default) * 2);
   }
 
-  .footer__top-navigation{
+  .footer__top-navigation {
     column-gap: 0;
   }
 
@@ -954,7 +1012,15 @@ footer ul li a:not(.hover):hover {
     padding-inline: calc(var(--indent-default) * 3);
   }
 
-  .footer__bottom-navigation ul{
+  .footer__top-navigation {
+    column-gap: var(--gap-big);
+  }
+
+  .footer__top-navigation article {
+    width: calc((100% - calc(var(--gap-big) * 2)) / 3);
+  }
+
+  .footer__bottom-navigation ul {
     align-items: center;
   }
 
